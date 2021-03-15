@@ -13,6 +13,7 @@ import javafx.scene.control.TextField;
 public class FXMLController {
 	
 	Parole elenco ;
+	long s1 = 0;
 
     @FXML
     private ResourceBundle resources;
@@ -51,9 +52,10 @@ public class FXMLController {
     	    list = list + s + "\n";
     	}
     	txtResult.appendText(list);
-    	String pres = "" + System.nanoTime();
-    	txtPrestazioni.appendText(pres + "\n");
+    	long s2 = System.nanoTime();
+    	txtPrestazioni.appendText("Ci ha messo "+(s2-s1)+ " ns\n");
     	txtParola.setText("");
+    	s1 = s2;
     	// TODO
     }
     
@@ -69,6 +71,10 @@ public class FXMLController {
     	}
     	txtResult.setText("");
     	txtResult.appendText(list);
+    	long s2 = System.nanoTime();
+    	txtPrestazioni.appendText("Ci ha messo "+(s2-s1)+ " ns\n");
+    	txtParola.setText("");
+    	s1 = s2;
 
     }
 
